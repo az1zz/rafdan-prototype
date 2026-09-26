@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#222B43">
+  <meta name="description" content="Rafdan helps students identify and review the prerequisite concepts their upcoming course actually depends on.">
+  <title>Rafdan | Prerequisite Readiness</title>
+  <link rel="icon" href="./assets/icons/favicon.ico" sizes="any">
+  <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Skip to main content</a>
+
+  <header class="site-header" data-testid="site-header">
+    <a class="brand-link" href="./index.html" aria-label="Rafdan home">
+      <img class="brand-logo" src="./assets/logos/rafdan-horizontal-two-tone.svg" alt="Rafdan">
+    </a>
+    <div class="header-context" aria-label="Demo context">
+      <span>Prerequisite readiness</span>
+      <span class="header-divider" aria-hidden="true"></span>
+      <span>CS 310 → CS 412</span>
+    </div>
+  </header>
+
+  <main id="app" class="app" tabindex="-1">
+    <noscript>This prototype requires JavaScript to run the interactive diagnostic.</noscript>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <img class="footer-logo" src="./assets/logos/rafdan-horizontal-white.svg" alt="Rafdan">
+      <p>Support the knowledge your next course depends on.</p>
+    </div>
+    <p>SaudiConsulters · Farq Hackathon · Student Journey</p>
+  </footer>
+
+  <div id="announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="./data/demo-content.js"></script>
+  <script src="./js/scoring.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

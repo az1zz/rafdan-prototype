@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../">
+  <title>Rafdan prototype tests</title>
+  <link rel="icon" href="./assets/icons/favicon.ico">
+  <style>
+    body { margin: 2rem; font: 16px/1.5 Arial, sans-serif; color: #222b43; }
+    .pass { color: #166534; }
+    .fail { color: #b91c1c; }
+    li { margin-block: .35rem; }
+  </style>
+</head>
+<body>
+  <h1>Rafdan prototype tests</h1>
+  <p id="summary" role="status">Running…</p>
+  <ol id="results"></ol>
+  <div id="app" hidden></div>
+  <div id="announcer" hidden></div>
+  <script>
+    window.__rafdanTestErrors = [];
+    window.addEventListener("error", (event) => window.__rafdanTestErrors.push(event.message));
+    window.addEventListener("unhandledrejection", (event) => window.__rafdanTestErrors.push(String(event.reason)));
+  </script>
+  <script src="./data/demo-content.js"></script>
+  <script src="./js/scoring.js"></script>
+  <script>window.__RAFDAN_TEST__ = true;</script>
+  <script src="./js/app.js"></script>
+  <script src="./tests/tests.js"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="../">
+  <title>Rafdan visual QA</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <style>.screen { animation: none !important; }</style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand-link" href="./index.html" aria-label="Rafdan home">
+      <img class="brand-logo" src="./assets/logos/rafdan-horizontal-two-tone.svg" alt="Rafdan">
+    </a>
+    <div class="header-context"><span>Prerequisite readiness</span><span class="header-divider"></span><span>CS 310 → CS 412</span></div>
+  </header>
+  <main id="app" class="app" tabindex="-1"></main>
+  <footer class="site-footer">
+    <div><img class="footer-logo" src="./assets/logos/rafdan-horizontal-white.svg" alt="Rafdan"><p>Support the knowledge your next course depends on.</p></div>
+    <p>SaudiConsulters · Farq Hackathon · Student Journey</p>
+  </footer>
+  <div id="announcer" class="visually-hidden" aria-live="polite"></div>
+  <script src="./data/demo-content.js"></script>
+  <script src="./js/scoring.js"></script>
+  <script>window.__RAFDAN_TEST__ = true;</script>
+  <script src="./js/app.js"></script>
+  <script>
+    const visualScreen = new URLSearchParams(location.search).get("screen") || "landing";
+    if (["results", "concepts", "gap", "review", "reassessment"].includes(visualScreen)) {
+      RafdanApp.state.answers = Object.fromEntries(demoData.questions.map((question) => [question.id, question.demoStudentAnswer]));
+      RafdanApp.state.results = RafdanScoring.calculateResults(RafdanApp.state.answers, demoData);
+      RafdanApp.state.quizCompleted = true;
+      RafdanApp.state.selectedGap = "BC5";
+    }
+    RafdanApp.goTo(visualScreen);
+    window.scrollTo(0, 0);
+  </script>
+</body>
+</html>
